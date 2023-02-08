@@ -2,6 +2,7 @@ package Model;
 
 public interface EmployeeDAO {
 
+
     int getId();
 
     int getCity_id();

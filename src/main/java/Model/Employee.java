@@ -7,9 +7,6 @@ public class Employee implements EmployeeDAO {
     private String gender;
     private int age;
     private int city_id;
-
-
-
     @Override
     public int getId() {
         return id;
