@@ -1,4 +1,10 @@
+import Model.City;
+import Model.Employee;
+import Model.EmployeeDAO;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
 
@@ -37,7 +43,22 @@ public class Application {
 
             }
         }
-    }
-}
+    }	// Создаем объект класса EmployeeDAOImpl
+    EmployeeDAO employeeDAO = new EmployeeImpl(connection);
+
+    City city = new City(1, "Москва");
+    Employee employee1 = new Employee("Kirill", "Torlopov","m",34,1);
+
+    // Вызываем метод добавления объекта
+            employeeDAO.create(employee1);
+
+    // Создаем список наполняя его объектами, которые получаем
+    // путем вызова метода для получения всех элементов таблицы
+    List<Employee> list = new ArrayList<>(employeeDAO.readAll());
+
+    // Выведем список в консоль
+            for (Employee employee : list) {
+        System.out.println(employee);
+}}
 
 
