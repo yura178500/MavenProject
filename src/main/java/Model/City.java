@@ -25,6 +25,7 @@ public class City {
         return Objects.hash(city_id, city);
     }
 
+
     public City(int city_id, String city) {
         this.city_id = city_id;
         this.city = city;
