@@ -31,7 +31,6 @@ public class City {
         this.city = city;
     }
 
-
     public int getCity_id() {
         return city_id;
     }
