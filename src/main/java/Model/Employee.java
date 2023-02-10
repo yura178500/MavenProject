@@ -97,8 +97,6 @@ public class Employee implements EmployeeDAO {
         this.age = age;
     }
 
-
-
     @Override
     public Employee readById(int id) {
         return null;

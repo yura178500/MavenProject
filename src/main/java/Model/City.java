@@ -19,7 +19,6 @@ public class City {
         City city1 = (City) o;
         return city_id == city1.city_id && city.equals(city1.city);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(city_id, city);
