@@ -22,6 +22,25 @@ public class Application {
         // Формируем запрос к базе с помощью PreparedStatement
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee WHERE city_id = (?)")) {
+            // Создаем объект класса EmployeeDAOImpl
+
+            EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
+
+            City city = new City(1, "Москва");
+            Employee employee1 = new Employee("Kirill", "Torlopov", "m", 34, 1);
+
+            // Вызываем метод добавления объекта
+            employeeDAO.create(employee1);
+
+
+            // Создаем список наполняя его объектами, которые получаем
+            // путем вызова метода для получения всех элементов таблицы
+            List<Employee> list = new ArrayList<>((Collection) employeeDAO.readAll());
+
+            // Выведем список в консоль
+            for (Employee employee : list) {
+                System.out.println(employee);
+            }
 
             // Подставляем значение вместо wildcard
             statement.setInt(1, 5);
@@ -46,24 +65,7 @@ public class Application {
 
             }
 
-            // Создаем объект класса EmployeeDAOImpl
 
-            EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
-
-            City city = new City(1, "Москва");
-            Employee employee1 = new Employee("Kirill", "Torlopov", "m", 34, 1);
-
-            // Вызываем метод добавления объекта
-            employeeDAO.create(employee1);
-
-            // Создаем список наполняя его объектами, которые получаем
-            // путем вызова метода для получения всех элементов таблицы
-            List<Employee> list = new ArrayList<>((Collection) employeeDAO.readAll());
-
-            // Выведем список в консоль
-            for (Employee employee : list) {
-                System.out.println(employee);
-            }
         }
     }
 }
