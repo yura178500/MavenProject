@@ -34,6 +34,7 @@ public interface EmployeeDAO {
     default List<Employee> readAll() {
         return null;
     }
+
     // Изменение объекта по id
     void updateAgeById(int id, int age);
     // Удаление объекта по id
