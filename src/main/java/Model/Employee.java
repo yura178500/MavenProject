@@ -95,6 +95,7 @@ public class Employee {
         return id == employee.id && age == employee.age && city_id == employee.city_id && first_name.equals(employee.first_name) && last_name.equals(employee.last_name) && gender.equals(employee.gender);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(id, first_name, last_name, gender, age, city_id);

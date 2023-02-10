@@ -39,6 +39,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
         Employee employee = new Employee();
 
+
         // Формируем запрос к базе с помощью PreparedStatement
         try (PreparedStatement statement = connection.prepareStatement(
                 "SELECT * FROM employee INNER JOIN city ON employee.city_id=city.city_id AND id=(?)")) {

@@ -13,6 +13,7 @@ public interface EmployeeDAO {
     // Получение всех объектов
     java.awt.List readAll();
 
+
     // Изменение объекта по id
     void updateAgeById(int id, int amount);
 
