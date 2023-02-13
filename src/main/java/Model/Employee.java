@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Connection;
 import java.util.Objects;
 
 
@@ -10,7 +11,7 @@ public class Employee {
     private String gender;
     private int age;
 
-    public Employee() {
+    public Employee(Connection connection) {
     }
 
     public Employee(String firstName, String lastName, String gender, int age) {

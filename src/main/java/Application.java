@@ -5,7 +5,6 @@ import Model.Employee;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Application {
@@ -27,7 +26,7 @@ public class Application {
             EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
 
             City city = new City(1, "Москва");
-            Employee employee1 = new Employee("Kirill", "Torlopov", "m", 34, 1);
+            Employee employee1 = new Employee(1,"Kirill" ,"Torlopov" ,"m" , 34);
 
             // Вызываем метод добавления объекта
             employeeDAO.create(employee1);
@@ -35,12 +34,16 @@ public class Application {
 
             // Создаем список наполняя его объектами, которые получаем
             // путем вызова метода для получения всех элементов таблицы
-            List<Employee> list = new ArrayList<>((Collection) employeeDAO.readAll());
+            List<Employee> list = new ArrayList<>( employeeDAO.readAll());
 
             // Выведем список в консоль
             for (Employee employee : list) {
                 System.out.println(employee);
             }
+            System.out.println(city);
+
+            employeeDAO.deleteById(20);
+
 
             // Подставляем значение вместо wildcard
             statement.setInt(1, 5);
