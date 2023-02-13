@@ -1,9 +1,15 @@
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Objects;
-
+@Entity
+@Table(name = "city")
 public class City {
+    @Column(name = "city_id")
     private int id;
+    @Column(name = "city")
     private String city;
 
     public City() {
