@@ -9,6 +9,8 @@ public interface EmployeeDAO {
     // Добавление объекта
     void create(Employee employee);
 
+    // int getId();
+
     // Получение объекта по id
     Employee readById(int id);
 

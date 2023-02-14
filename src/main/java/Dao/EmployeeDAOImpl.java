@@ -8,7 +8,8 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
-   // final String user = "postgres";
+
+    // final String user = "postgres";
    // final String password = "178500";
    // final String url = "jdbc:postgresql://localhost:5432/skypro";
    // Connection connection = DriverManager.getConnection(url, user, password);
@@ -32,7 +33,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
     }
 
-   // @Override
+
+    // @Override
    // public void create(Employee employee) {
 
         // Формируем запрос к базе с помощью PreparedStatement

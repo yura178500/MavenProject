@@ -1,49 +1,53 @@
 package Model;
+
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
+
+@Entity
+@Table(name = "city")
 public class City {
-    private int city_id;
+    @Column(name = "city_id")
+    private int id;
+    @Column(name = "city")
     private String city;
 
+    @OneToMany(mappedBy = "city_id", cascade = CascadeType.ALL)
+    private List<Employee> employees;
+    public City() {
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public City(int id, String city) {
+        this.id = id;
+        this.city = city;
+    }
     @Override
     public String toString() {
         return "City{" +
-                "city_id=" + city_id +
+                "id=" + id +
                 ", city='" + city + '\'' +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city1 = (City) o;
-        return city_id == city1.city_id && city.equals(city1.city);
+        return id == city1.id && city.equals(city1.city);
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(city_id, city);
-    }
-
-    public City(int city_id, String city) {
-        this.city_id = city_id;
-        this.city = city;
-    }
-
-
-    public int getCity_id() {
-        return city_id;
-    }
-
-    public void setCity_id(int city_id) {
-        this.city_id = city_id;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+        return Objects.hash(id, city);
     }
 }
