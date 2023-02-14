@@ -2,20 +2,37 @@ package Dao;
 
 import Model.Employee;
 
+import java.util.List;
+
 public interface EmployeeDAO {
 
     // Добавление объекта
     void create(Employee employee);
 
+    // int getId();
+
     // Получение объекта по id
     Employee readById(int id);
 
     // Получение всех объектов
-    java.awt.List readAll();
+    List<Employee> readAll();
+
 
     // Изменение объекта по id
-    void updateAgeById(int id, int amount);
+   // void updateAgeById(int id, int age);
+
+    //      statement.executeUpdate();
+    //  } catch (SQLException e) {
+     //     e.printStackTrace();
+    //  }
+ // }
+    void updateAge(Employee employee);
 
     // Удаление объекта по id
-    void deleteById(int id);
+   // void deleteById(int id);
+
+    //   } catch (SQLException e) {
+      //     e.printStackTrace();
+     //  }
+    void delete(Employee employee);
 }

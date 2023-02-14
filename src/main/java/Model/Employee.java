@@ -1,114 +1,88 @@
 package Model;
 
+import javax.persistence.*;
+import java.sql.Connection;
 import java.util.Objects;
 
-
+@Entity
+@Table(name = "employee")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    private String first_name;
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "age")
     private int age;
-    private int city_id;
+    @Column(name = "city_id")
+    private int cityId;
 
     public Employee() {
-    }
+        }
 
-    public Employee(String first_name, String last_name, String gender, int age, int city_id) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.gender = gender;
-        this.age = age;
-        this.city_id = city_id;
-    }
+    public Employee(String firstName, String lastName, String gender, int age,int cityId) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.gender = gender;
+                this.age = age;
+                this.cityId=cityId;
+            }
 
-    public Employee(int id, String first_name, String last_name, String gender, int age, int city_id) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.gender = gender;
-        this.age = age;
-        this.city_id = city_id;
-    }
+    public Employee(int id, String firstName, String lastName, String gender, int age,int cityId) {
+                    this.id = id;
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                    this.gender = gender;
+                    this.age = age;
+                    this.cityId=cityId;
+                }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Employee(Connection connection) {
+                }
 
-    public void setCity_id(int city_id) {
-        this.city_id = city_id;
-    }
+                public void setId(int id) {
+                    this.id = id;
+                }
 
+                public int getCityId() {
+                    return cityId;
+                }
 
-    public int getId() {
-        return id;
-    }
+                public void setCityId(int cityId) {
+                    this.cityId = cityId;
+                }
 
-    public int getCity_id() {
-        return city_id;
-    }
+                public int getId() {
+                    return id;
 
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-
-    public String getGender() {
-        return gender;
-    }
-
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-
-    public int getAge() {
-        return age;
-    }
-
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+                }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && age == employee.age && city_id == employee.city_id && first_name.equals(employee.first_name) && last_name.equals(employee.last_name) && gender.equals(employee.gender);
+        return id == employee.id && age == employee.age && cityId == employee.cityId && firstName.equals(employee.firstName) && lastName.equals(employee.lastName) && gender.equals(employee.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, first_name, last_name, gender, age, city_id);
+        return Objects.hash(id, firstName, lastName, gender, age, cityId);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
-                ", city_id=" + city_id +
+                ", cityId=" + cityId +
                 '}';
-    }
-}
+    }}
